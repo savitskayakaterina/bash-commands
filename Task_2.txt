@@ -1,0 +1,42 @@
+* Создать папку test 3 - mkdir test3
+* Добавить в него три файла 4, 5 и 6, в каждом из которых должно быть по 4 строки row1, row2, row3, row4
+cd test3
+touch 4.txt 5.txt 6.txt
+vim 4.txt
+i
+row1
+row2
+row3
+row4
+:wq
+cat 4.txt > 5.txt
+cat 4.txt > 6.txt
+
+* Найдите строку row2 в файле 5
+grep -i "row2" 5.txt
+* Найдите строку row в папке test3
+grep -i "row*" test3/*
+* Посчитайте сколько строк с содержимым row в файле 6
+grep -c "row" test3/6.txt
+* Найдите файл 5 внутри папки test3
+find test3 -name "5.txt"
+* Используя команду find, удалите файл 5
+find . -name "5.txt" -delete
+* Используя команду echo, добавьте слово test в файл 4
+echo "test">> test3/4.txt
+* Замените слово test в файле 4 на fail
+sed -i "s/test/fail/g" 4.txt
+* Добавьте в файл 4 слово test так, чтобы сохранилось содержимое
+echo "test" >> 4.txt
+* Просмотрите все процессы для юзеров не только в консоли, которые происходят в системе
+ps aux
+* Убейте процесс 666 в консоли
+kill 666
+* Узнайте доступность ресурса artsiomrusau.com, используя ping
+ping artsiomrusau.com
+* Отправьте 5 пакетов на сайт artsiomrusau.com
+ping -c 5 artsiomrusau.com
+* Используя GET и команду curl, получите информацию о зарегистрированных питомцах на https://petstore.swagger.io/
+curl -X GET https://petstore.swagger.io/pet
+* Используя POST и команду curl, создайте нового пользователя на https://petstore.swagger.io/
+curl -X POST https://petstore.swagger.io/v2/pet --data "name=John"
